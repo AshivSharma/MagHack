@@ -5,13 +5,16 @@ import Person from './components/Person';
 import Lonely from './components/Lonely';
 import data from './data.json';
 
+
+
 const App = () => {
+  
   const [people, setPeople] = useState(data);
   const [likedUsers, setLikedUsers] = useState([]);
   const [superLikedUsers, setSuperLikedUsers] = useState([]);
   const [dislikedUsers, setDislikedUsers] = useState([]);
   const activeUser = 0;
-
+  
   const removedPersonFromDataSrc = (peopleSource, userId) =>
     peopleSource.filter(user => user.id !== userId);
 
