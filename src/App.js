@@ -7,7 +7,9 @@ import data from './data.json';
 
 
 var num = 0;
-var res = [];
+var alwaysResults = [];
+var almostAlwaysResults = [];
+var sometimesResult = [];
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState();
@@ -94,18 +96,26 @@ const App = () => {
       //   }
       //   break;
       case 'ADD_TO_ALWAYS_OPTION':
-        //if (!people[activeUser].superLikedUsers.includes(userId)) {
-          //newResponses[activeUser].alwaysOption.push(questions_id);
-          //newAlwaysOption.push(questions_id);
-
-          res.push(currentQuestions)
+          alwaysResults.push(currentQuestions)
           num++;
-          setCurrent(num);
-          console.log("Pushed", res);
-          //setResponses(qu);
-        //}
+          setCurrent(num);          
+          console.log("Pushed", alwaysResults);
         break;
-        
+
+      case 'ADD_TO_ALMOST_ALWAYS_OPTION':
+          almostAlwaysResults.push(currentQuestions)
+          num++;
+          setCurrent(num);          
+          console.log("Pushed", almostAlwaysResults);
+        break;
+
+      case 'ADD_TO_SOMETIMES_OPTION':
+          sometimesResult.push(currentQuestions)
+          num++;
+          setCurrent(num);          
+          console.log("Pushed", sometimesResult);
+        break;
+
       default:
         return people;
     }

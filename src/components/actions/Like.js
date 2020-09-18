@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Like = ({ questions_id, modifySuperficialChoices }) => (
+const Like = ({ questions_id, modifySuperficialChoices, choice, addToOption }) => (
   <button
     type="button"
-    onClick={() => modifySuperficialChoices(questions_id, 'ADD_TO_ALWAYS_OPTION')}
+    onClick={() => modifySuperficialChoices(questions_id, addToOption)}
   >
     
     {/* <img src="images/misc/like.png" alt="Like User" /> */}
-    Always
+    {choice}
   </button>
 );
 
