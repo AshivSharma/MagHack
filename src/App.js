@@ -10,6 +10,9 @@ var num = 0;
 var alwaysResults = [];
 var almostAlwaysResults = [];
 var sometimesResult = [];
+var almostNeverResult = [];
+var neverResult = [];
+var NAResult = [];
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState();
@@ -115,6 +118,24 @@ const App = () => {
           setCurrent(num);          
           console.log("Pushed", sometimesResult);
         break;
+      case 'ADD_TO_ALMOST_NEVER_OPTION':
+          almostNeverOption.push(currentQuestions)
+          num++;
+          setCurrent(num);          
+          console.log("Pushed", almostNeverOption);
+        break;
+      case 'ADD_TO_NEVER_OPTION':
+          neverOption.push(currentQuestions)
+          num++;
+          setCurrent(num);          
+          console.log("Pushed", neverOption);
+        break;
+      case 'ADD_TO_NA_OPTION':
+          NAOption.push(currentQuestions)
+          num++;
+          setCurrent(num);          
+          console.log("Pushed", NAOption);
+        break;
 
       default:
         return people;
@@ -138,6 +159,8 @@ const App = () => {
           superLikedUsers={superLikedUsers}
         />
       )}
+              <button>TEST</button>
+
     </div>
   );
 };

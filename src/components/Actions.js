@@ -33,19 +33,19 @@ const Actions = ({ questions_id, modifySuperficialChoices }) => (
       questions_id={questions_id}
       modifySuperficialChoices={modifySuperficialChoices}
       choice = "Almost Never"
-      addToOption = "ADD_TO_SOMETIMES_OPTION"
+      addToOption = "ADD_TO_ALMOST_NEVER_OPTION"
     />
     <Like
       questions_id={questions_id}
       modifySuperficialChoices={modifySuperficialChoices}
       choice = "Never"
-      addToOption = "ADD_TO_SOMETIMES_OPTION"
+      addToOption = "ADD_TO_NEVER_OPTION"
     />
     <Like
       questions_id={questions_id}
       modifySuperficialChoices={modifySuperficialChoices}
       choice = "N/A"
-      addToOption = "ADD_TO_SOMETIMES_OPTION"
+      addToOption = "ADD_TO_NA_OPTION"
     />
     {/* <Superlike
       userId={person.id}
