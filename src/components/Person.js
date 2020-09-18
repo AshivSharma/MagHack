@@ -1,26 +1,26 @@
 import React from 'react';
 import Actions from './Actions';
 
-const Person = ({ person, modifySuperficialChoices }) => {
-  const { name, desc, age, image } = person;
+const Person = ({ modifySuperficialChoices, questions }) => {
+  const { question, questions_id } = questions
 
   return (
     <>
       <div className="person">
         <div className="person-photo">
-          <h2>HI THERE</h2>
+          <h2>{question}</h2>
         </div>
 
         <div className="person-description">
           <p className="person-name-age">
-            {name}, <span>{age}</span>
+            Question Number: <span>{questions_id}</span>
           </p>
-          <p className="person-info">{desc}</p>
+          <p className="person-info">Type: Survey Questions</p>
         </div>
       </div>
 
       <Actions
-        person={person}
+        questions_id={questions_id}
         modifySuperficialChoices={modifySuperficialChoices}
       />
     </>

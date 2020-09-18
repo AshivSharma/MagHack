@@ -5,7 +5,7 @@ const SuperLike = ({ userId, modifySuperficialChoices }) => (
     type="button"
     onClick={() => modifySuperficialChoices(userId, 'ADD_TO_SUPERLIKED_USERS')}
   >
-    <img src="images/misc/superlike.png" alt="Superlike User" />
+    {/* <img src="images/misc/superlike.png" alt="Superlike User" /> */}
   </button>
 );
 
