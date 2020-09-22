@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Person from './components/Person';
 import Lonely from './components/Lonely';
 import data from './data.json';
+import generatePDF from './components/reportGenerator';
 
 
 var num = 0;
@@ -13,6 +14,15 @@ var sometimesResult = [];
 var almostNeverResult = [];
 var neverResult = [];
 var NAResult = [];
+
+function message() {
+  fetch('/api/messages', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+}
 const App = () => {
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState();
@@ -57,84 +67,46 @@ const App = () => {
   
 
   const modifySuperficialChoices = (questions_id, action) => {
-    const newPeople = [...people];
-    const newLikedUsers = [...likedUsers];
-    const newSuperLikedUsers = [...superLikedUsers];
-    const newDislikedUsers = [...dislikedUsers];
-
-    const newResponses = [...responses];
-    const newAlwaysOption = [...alwaysOption];
-    const newAlmostNeverOption = [...almostNeverOption];
-    const newNeverOption = [...neverOption];
-    const newAlmostSometimesOption = [...almostSometimesOption];
-    const newSometimesOption = [...sometimesOption];
-    const newNAOption = [...NAOption];
 
     switch (action) {
-      // case 'ADD_TO_LIKED_USERS':
-      //   if (!people[activeUser].likedUsers.includes(userId)) {
-      //     newPeople[activeUser].likedUsers.push(userId);
-      //     newLikedUsers.push(data[userId]);
-
-      //     setLikedUsers(newLikedUsers);
-      //     setPeople(removedPersonFromDataSrc(people, userId));
-      //   }
-      //   break;
-      // case 'ADD_TO_DISLIKED_USERS':
-      //   if (!people[activeUser].dislikedUsers.includes(userId)) {
-      //     newPeople[activeUser].dislikedUsers.push(userId);
-      //     newDislikedUsers.push(data[userId]);
-
-      //     setDislikedUsers(newLikedUsers);
-      //     setPeople(removedPersonFromDataSrc(people, userId));
-      //   }
-      //   break;
-      // case 'ADD_TO_SUPERLIKED_USERS':
-      //   if (!people[activeUser].superLikedUsers.includes(userId)) {
-      //     newPeople[activeUser].superLikedUsers.push(userId);
-      //     newSuperLikedUsers.push(data[userId]);
-
-      //     setSuperLikedUsers(newSuperLikedUsers);
-      //     setPeople(removedPersonFromDataSrc(people, userId));
-      //   }
-      //   break;
+      
       case 'ADD_TO_ALWAYS_OPTION':
           alwaysResults.push(currentQuestions)
           num++;
           setCurrent(num);          
-          console.log("Pushed", alwaysResults);
+          console.log("Always", alwaysResults);
         break;
 
       case 'ADD_TO_ALMOST_ALWAYS_OPTION':
           almostAlwaysResults.push(currentQuestions)
           num++;
           setCurrent(num);          
-          console.log("Pushed", almostAlwaysResults);
+          console.log("Almost Always", almostAlwaysResults);
         break;
 
       case 'ADD_TO_SOMETIMES_OPTION':
           sometimesResult.push(currentQuestions)
           num++;
           setCurrent(num);          
-          console.log("Pushed", sometimesResult);
+          console.log("Sometimes", sometimesResult);
         break;
       case 'ADD_TO_ALMOST_NEVER_OPTION':
-          almostNeverOption.push(currentQuestions)
+          almostNeverResult.push(currentQuestions)
           num++;
           setCurrent(num);          
-          console.log("Pushed", almostNeverOption);
+          console.log("Almost Never", almostNeverResult);
         break;
       case 'ADD_TO_NEVER_OPTION':
-          neverOption.push(currentQuestions)
+          neverResult.push(currentQuestions)
           num++;
           setCurrent(num);          
-          console.log("Pushed", neverOption);
+          console.log("Never", neverResult);
         break;
       case 'ADD_TO_NA_OPTION':
-          NAOption.push(currentQuestions)
+          NAResult.push(currentQuestions)
           num++;
           setCurrent(num);          
-          console.log("Pushed", NAOption);
+          console.log("NA", NAResult);
         break;
 
       default:
@@ -150,16 +122,22 @@ const App = () => {
           key={people[1].id}
           modifySuperficialChoices={modifySuperficialChoices}
           questions={currentQuestions}
-          likedUsers={likedUsers}
         />
       ) : (
-        <Lonely
-          activeUserImage={people[activeUser].image}
-          likedUsers={likedUsers}
-          superLikedUsers={superLikedUsers}
-        />
+        <h1>Download Complete Report</h1>
       )}
-              <button>TEST</button>
+        <button
+              className="buttonPillLeft"
+              onClick={() => generatePDF(alwaysResults, almostAlwaysResults, sometimesResult, almostNeverResult, neverResult, NAResult)}
+            >
+               Download Report
+            </button>
+        <button
+              className="buttonPillRight"
+              onClick={message()}
+            >
+               Send Report
+            </button>
 
     </div>
   );

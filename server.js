@@ -21,6 +21,22 @@ app.get('/', (req, res) => {
     res.status(500).send(error);
   })
 })
+app.post('/api/messages', (req, res) => {
+  res.header('Content-Type', 'application/json');
+  client.messages
+    .create({
+      from: '+12184232320',
+      to: '+14045185919',
+      body: 'testingExpress',
+    })
+    .then(() => {
+      res.send(JSON.stringify({ success: true }));
+    })
+    .catch(err => {
+      console.log(err);
+      res.send(JSON.stringify({ success: false }));
+    });
+})
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)

@@ -21,12 +21,15 @@ ol, ul {
 	text-align: center;
 	max-width: 900px;
 	margin: auto;
+	
+	
 }
 
 header {
 	background-color: white;
 	overflow: hidden;
 	display: flex;
+	
 }
 
 header {
@@ -66,7 +69,7 @@ header .fl:last-child {
 .person .person-photo {
 	overflow: hidden;
 	height: 400px;
-	box-shadow: 0 10px 20px 0 rgba(0,0,0,0.3);
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3);
 }
 .person .person-photo h2 {
 	margin-top: 150px;
@@ -84,6 +87,8 @@ header .fl:last-child {
 	box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
 	border-radius: 1px;
 	background-color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .person .person-name-age {
@@ -91,12 +96,16 @@ header .fl:last-child {
 	font-size: 30px;
 	margin-bottom: 10px;
 	margin-top: 0;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 .person .person-info {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-size: 20px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 
@@ -108,6 +117,8 @@ header .fl:last-child {
 	align-items: center;
 	justify-content: center;
 	margin-top: 10px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 
 #actions button {
@@ -127,6 +138,8 @@ header .fl:last-child {
 	box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
 	font-size: 20px;
 	flex: 0 0 30%;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
 }
 button:hover {
     transition: 130ms transform ease-in-out;
@@ -224,3 +237,39 @@ button:hover {
   }
 }
 
+.buttonPillRight {
+	width: 30%;
+	height: 40px;
+	border-color: #009bc9;
+	border-radius: 3px;
+	font-size: large;
+	background-color: #cbe3ef;
+	color: black;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 0px 16px 16px 0px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
+.buttonPillLeft {
+	width: 30%;
+	height: 40px;
+	border-color: #009bc9;
+	background-color: #cbe3ef;
+
+	border-radius: 3px;
+	color: black;
+	font-size: large;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 1px 1px;
+	cursor: pointer;
+	border-radius: 16px 0px 0px 16px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  }
