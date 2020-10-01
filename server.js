@@ -26,7 +26,7 @@ app.post('/api/messages', (req, res) => {
   client.messages
     .create({
       from: '+12184232320',
-      to: '+14045185919',
+      to: '',
       body: 'testingExpress',
     })
     .then(() => {
